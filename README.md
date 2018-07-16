@@ -1,6 +1,27 @@
 # enchant.py
 enchant.js like game framework for Python.
-Alpha version
+This is pre-alpha version.
+
+# Why enchant.js to Python?
+
+We held a programming school for teenager.
+But JavaScripts isn't work well in Chromium on Raspberry Pi.
+
+PyGame is great library for coding, but it is pretty difficult to teach how to make a game for kids.
+
+We already have a so many samples and training kits based on enchant.js.
+
+
+So, we made a enchant.js style framework for Python.
+This is it.
+
+So, this framework is not suitable for making a GREAT GAME.
+
+
+And, python is very good language and environment to make a web services or neural networks.
+
+So,the first purpose of this framework is bridge from JavaScript to Python.
+And the second is that open the gate for kids to join a practical programming world.
 
 # Requirements
 
@@ -41,3 +62,12 @@ class Apple(Sprite):
   - MAP
 - Not supported any plugins
   - Ex. timelines,OpenGL,Physics,etc.
+
+
+# Licences
+
+MIT Licence
+
+# Reference
+
+https://github.com/wise9/enchant.js/
