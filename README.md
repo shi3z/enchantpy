@@ -6,6 +6,7 @@ This is pre-alpha version.
 
 ![image]('https://github.com/shi3z/enchantpy/blob/master/chara1.png?raw=true')
 
+
 We held a programming school for teenager.
 But JavaScripts isn't work well in Chromium on Raspberry Pi.
 
