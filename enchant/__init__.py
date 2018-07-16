@@ -75,7 +75,7 @@ class Entity:
 	@staticmethod 
 	def postEvent(event):
 		eventtype=None
-		if str(type(event)) == "<type 'str'>":
+		if type(event) is str:
 			eventtype=event
 		else:
 			if hasattr(event,'pos'):
