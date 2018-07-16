@@ -4,7 +4,7 @@ This is pre-alpha version.
 
 # Why enchant.js to Python?
 
-![image]('./chara1.png')
+![image]('https://github.com/shi3z/enchantpy/chara1.png')
 
 We held a programming school for teenager.
 But JavaScripts isn't work well in Chromium on Raspberry Pi.
