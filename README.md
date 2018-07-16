@@ -4,10 +4,7 @@ This is pre-alpha version.
 
 # Why enchant.js to Python?
 
-![image]('https://github.com/shi3z/enchantpy/blob/master/chara1.png?raw=true')
-
-
-We held a programming school for teenager.
+We held a programming school for kids.
 But JavaScripts isn't work well in Chromium on Raspberry Pi.
 
 PyGame is great library for coding, but it is pretty difficult to teach how to make a game for kids.
