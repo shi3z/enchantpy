@@ -36,8 +36,10 @@ class Entity:
 		self.children.append(child)
 
 	def removeChild(self,child):
-		self.children.remove(child)
-		Entity.list.remove(child)
+		if child in self.children:
+			self.children.remove(child)
+		if child in Entity.list:
+			Entity.list.remove(child)
 		#Entity.classList[self.__class__.__name__].remove(child)
 
 	def addEventListener(self,event,func,type='external'):
@@ -60,12 +62,14 @@ class Entity:
 					listener['handler'](event)
 
 	def intersect(self,classObj):
-		r = []
-		for t in Entity.classList[classObj.__name__]:
-			if (t.x <= self.x+self.w and self.x <=t.x+t.w and
-				t.y <= self.y+self.h and self.y <=t.y+t.h):
-				r.append(t)
-		return r
+		if classObj.__name__ in Entity.classList:
+			r = []
+			for t in Entity.classList[classObj.__name__]:
+				if (t.x <= self.x+self.w and self.x <=t.x+t.w and
+					t.y <= self.y+self.h and self.y <=t.y+t.h):
+					r.append(t)
+			return r
+		return []
 
 	def hit(self,classObj):
 		if len(self.intersect(classObj))>0:
@@ -141,6 +145,7 @@ class Sprite(Entity):
 		self.initialized=True
 		self._updateScale()
 		self._updateArea()
+		self._reset()
 
 	def __setattr__(self,name,value):
 		self.__dict__[name] = value
