@@ -132,7 +132,7 @@ class Sprite(Entity):
 		Entity.__init__(self)
 		self.img = pygame.image.load(imageFile).convert_alpha()
 		self.img_rect = self.img.get_rect()
-		self._maxFrame = self.img_rect[2]//w *self.img_rect[3]//h
+		self._frameWidth = self.img_rect[2]//w
 		self.w=w
 		self.h=h
 		self.scaleX=1
@@ -157,8 +157,8 @@ class Sprite(Entity):
 
 	def _updateArea(self):
 
-		x = self.frame % self._maxFrame;
-		y = self.frame // self._maxFrame;
+		x = self.frame % self._frameWidth;
+		y = self.frame // self._frameWidth;
 
 
 		self.area = pygame.Rect(x*self.w*self.scaleX,y*self.h*self.scaleY,
