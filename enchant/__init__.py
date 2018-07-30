@@ -167,7 +167,7 @@ class Sprite(Entity):
 
 
 		self.area = pygame.Rect(x*self.w*self.scaleX,y*self.h*self.scaleY,
-								(x+self.w)*self.scaleX,(y+self.h)*self.scaleY)
+								self.w*self.scaleX,self.h*self.scaleY)
 
 	def _draw(self,screen):
 		screen.blit(self.img, (self.x,self.y,
@@ -183,12 +183,15 @@ class Scene(Entity):
 		Entity.__init__(self)
 		self.w=w
 		self.h=h
+		self.canvas=False
 		SCREEN_SIZE = (w, h)
 		 
 		pygame.init()
 		self.screen = pygame.display.set_mode(SCREEN_SIZE)
 
 	def draw(self):
+		if self.canvas == False:
+			self.screen.fill((0,0,255))
 		for entity in self.children:
 			entity._draw(self.screen)
 
@@ -212,7 +215,6 @@ class Game:
 		clock = pygame.time.Clock()
 		while True:
 			Game.age +=1
-			self.rootScene.screen.fill((0,0,255))
 			self.rootScene.draw()
 
 			pygame.event.pump() #おまじない
