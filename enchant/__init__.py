@@ -208,6 +208,7 @@ class Game:
 	def __init__(self,w,h):
 		self.rootScene = Scene(w,h)
 		self.input=Pad()
+		self.gameOver=False
 
 	def start(self):
 		Entity.init()
@@ -230,15 +231,21 @@ class Game:
 			if pressed_keys[K_ESCAPE]:
 				sys.exit()
 
-			self.input.up 		= pressed_keys[K_UP]
-			self.input.down 	= pressed_keys[K_DOWN]
-			self.input.left 	= pressed_keys[K_LEFT]
-			self.input.right 	= pressed_keys[K_RIGHT]
-			self.input.space 	= pressed_keys[K_SPACE]
-			self.input.all 	= pressed_keys
+			if not self.gameOver:
+				self.input.up 		= pressed_keys[K_UP]
+				self.input.down 	= pressed_keys[K_DOWN]
+				self.input.left 	= pressed_keys[K_LEFT]
+				self.input.right 	= pressed_keys[K_RIGHT]
+				self.input.space 	= pressed_keys[K_SPACE]
+				self.input.all 	= pressed_keys
 
-			for event in pygame.event.get():
-				Entity.postEvent(event)
-			Entity.postEvent('enterframe')
+				for event in pygame.event.get():
+					Entity.postEvent(event)
+				Entity.postEvent('enterframe')
+
+
+
+	def stop(self):
+		self.gameOver=True
 
 pygame.init()
