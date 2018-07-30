@@ -185,13 +185,13 @@ class Scene(Entity):
 		self.h=h
 		self.canvas=False
 		SCREEN_SIZE = (w, h)
-		 
+		self.color=(0,0,255) 
 		pygame.init()
 		self.screen = pygame.display.set_mode(SCREEN_SIZE)
 
 	def draw(self):
 		if self.canvas == False:
-			self.screen.fill((0,0,255))
+			self.screen.fill(self.color)
 		for entity in self.children:
 			entity._draw(self.screen)
 
@@ -235,6 +235,7 @@ class Game:
 			self.input.left 	= pressed_keys[K_LEFT]
 			self.input.right 	= pressed_keys[K_RIGHT]
 			self.input.space 	= pressed_keys[K_SPACE]
+			self.input.all 	= pressed_keys
 
 			for event in pygame.event.get():
 				Entity.postEvent(event)
