@@ -22,7 +22,7 @@ class Entity:
 		self.children=[]
 		self.born=Game.age
 		Entity.list.append(self)
-		if not hasattr(Entity.classList,self.__class__.__name__):
+		if not self.__class__.__name__ in Entity.classList:
 			Entity.classList[self.__class__.__name__]=[]
 		Entity.classList[self.__class__.__name__].append(self)
 
